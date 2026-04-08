@@ -27,6 +27,7 @@ const expressLayouts = require("express-ejs-layouts");
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "layouts/main");
+app.set('views', path.join(__dirname, 'views'));
 
 //Setup a static folder
 app.use(express.static(path.join(__dirname, "public")));
