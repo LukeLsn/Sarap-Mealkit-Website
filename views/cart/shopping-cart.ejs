@@ -1,0 +1,103 @@
+<!-- Used this link: https://bootstrapexamples.com/@kemaya/shopping-cart-design-using-bootstrap-5 for reference-->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="container py-5">
+    <h1 class="mb-5 text-center">Your Shopping Cart</h1>
+
+    <% if (cart && cart.length > 0) { %>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <% 
+                        let subtotal = 0; 
+                        cart.forEach((item, index) => { 
+                            let itemTotal = item.price * item.qty;
+                            subtotal += itemTotal;
+                    %>
+                        <div class="row cart-item align-items-center">
+                            <div class="col-md-3">
+                                <img src="<%= item.imageUrl %>" alt="<%= item.title %>" class="img-fluid rounded shadow-sm" style="max-height: 120px; width: 100%; object-fit: cover;">
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <h5 class="card-title mb-1"><%= item.title %></h5>
+                                <p class="text-muted small mb-0">Includes: <%= item.includes %></p>
+                                <p class="text-primary fw-bold mb-0 mt-2">$<%= item.price.toFixed(2) %></p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <form action="/cart/update-qty/<%= item.id %>" method="POST" class="input-group input-group-sm">
+                                    <input type="number" name="qty" value="<%= item.qty %>" min="1" class="form-control text-center quantity-input" style="max-width: 70px;">
+                                    <button class="btn btn-outline-secondary" type="submit">Update</button>
+                                </form>
+                            </div>
+
+                            <div class="col-md-2 text-end">
+                                <p class="fw-bold mb-2">$<%= itemTotal.toFixed(2) %></p>
+                                <a href="/cart/remove/<%= item.id %>" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <% if (index < cart.length - 1) { %>
+                            <hr class="my-4">
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+
+            <div class="text-start mb-4">
+                <a href="/mealkits" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <% 
+                let tax = subtotal * 0.10;
+                let grandTotal = subtotal + tax;
+            %>
+            <div class="card cart-summary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Order Summary</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Subtotal</span>
+                        <span>$<%= subtotal.toFixed(2) %></span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Tax (10%)</span>
+                        <span>$<%= tax.toFixed(2) %></span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <strong class="h5">Total</strong>
+                        <strong class="h5 text-success">$<%= grandTotal.toFixed(2) %></strong>
+                    </div>
+
+                    <form action="/cart/place-order" method="POST" onsubmit="this.querySelector('button').disabled=true; this.querySelector('button').innerHTML='Processing...';">
+                        <button type="submit" class="btn btn-success btn-lg w-100 py-3 shadow-sm">
+                            Place Order
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <% } else { %>
+        <div class="text-center py-5">
+            <div class="mb-4 text-muted" style="font-size: 5rem;">
+                <i class="bi bi-cart-x"></i>
+            </div>
+            <h3>Your cart is empty!</h3>
+            <p class="text-muted mb-4">You haven't added any Sarap MealKits yet.</p>
+            <a href="/mealkits" class="btn btn-primary btn-lg px-5">View Our Menu</a>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,21 @@
+<div class="meal-card">
+    <div class="meal-image">
+        <img src="<%= meal.imageUrl %>" alt="<%= meal.title %>">
+    </div>
+    <div class="meal-details">
+        <h3><%= meal.title %></h3>
+        <p class="meal-includes"><%= meal.includes %></p>
+        <div class="meal-footer">
+            <span class="meal-price">$<%= meal.price %></span>
+        </div>
+
+        <!-- Added this for Assignment 3 - this simply adds the buy button if the user is logged in as customer, won't show buy button otherwise -->
+        <% if (user && role === "customer") { %>
+            <div class="meal-buy-action mt-3">
+                <form action="/cart/add/<%= meal._id %>" method="POST">
+                    <button type="submit" class="btn btn-success w-100">Buy</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+</div>

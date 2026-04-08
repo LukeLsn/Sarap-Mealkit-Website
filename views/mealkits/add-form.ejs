@@ -1,0 +1,59 @@
+<section class="container my-5">
+    <h2 class="text-center mb-4">Add a New Meal Kit</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <form action="/mealkits/add" method="POST" enctype="multipart/form-data" class="border p-4 shadow-sm">
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Meal Kit Title</label>
+                <input type="text" name="title" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.title : '' %>" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Category (e.g., Classic, Filipino)</label>
+                <input type="text" name="category" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.category : '' %>" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Includes (Ingredients)</label>
+            <input type="text" name="includes" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.includes : '' %>">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control" rows="3"><%= typeof kit !== 'undefined' ? kit.description : '' %></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Price ($)</label>
+                <input type="number" step="0.01" name="price" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.price : '' %>" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Cooking Time (min)</label>
+                <input type="number" name="cookingTime" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.cookingTime : '' %>">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Servings</label>
+                <input type="number" name="servings" class="form-control" value="<%= typeof kit !== 'undefined' ? kit.servings : '' %>">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Meal Kit Image (.jpg, .png, .gif)</label>
+            <input type="file" name="imageUrl" class="form-control" required>
+        </div>
+
+        <div class="mb-4 form-check">
+            <input type="checkbox" name="featuredMealKit" class="form-check-input" id="featured" <%= typeof kit !== 'undefined' && kit.featuredMealKit ? 'checked' : '' %>>
+            <label class="form-check-label" for="featured">Show as Featured on Home Page</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Add Meal Kit</button>
+        <a href="/mealkits/list" class="btn btn-link d-block text-center mt-2">Cancel and Go Back</a>
+    </form>
+</section>

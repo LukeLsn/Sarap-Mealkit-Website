@@ -1,0 +1,60 @@
+<div class="hero">
+    <!-- Hero -->
+    <!-- Initially was using CSS to style how the hero section works but tried to challenge myself with bootstrap.
+    Links Refered to: 
+    https://mdbootstrap.com/docs/standard/extended/hero/
+    https://getbootstrap.com/docs/5.0/examples/heroes/
+    and google search
+    -->
+<div class="px-4 text-center text-white d-flex align-items-center justify-content-center">
+  <div>
+    <h1 class="display-5 fw-bold" style="color:#f1d592;">Malinamnam! Authentic Filipino Meal Kits</h1>
+    <p class="lead mb-4">
+        Experience the taste of the islands delivered right to your doorstep.<br>
+        Simple, fresh, and sarap!
+    </p>
+    <a href="/mealkits">
+    <button class="btn btn-dark px-4 py-2" style="background-color: #212529; border: none;" >
+        Explore the menu
+    </button>
+    </a>
+  </div>
+    </div>
+    </div>
+
+<section class="how-it-works container-fluid px-md-5 my-5">
+    <h2 class="text-center mb-5">HOW IT WORKS</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center">
+        <div class="col">
+            <img src="/images/filoCooking.webp" alt="Original Recipes" class="circle-img">
+            <h3>We create original recipes.</h3>
+            <p>Our in-house culinary team uses premium ingredients to create unique Filipino menus for breakfast, lunch, and dinner.</p>
+        </div>
+        <div class="col">
+            <img src="/images/filoVariety.jpg" alt="Choose Preferences" class="circle-img">
+            <h3>You choose your preferences.</h3>
+            <p>Choose from a variety of healthy, delicious Filipino meals each week that accommodate your dietary preferences.</p>
+        </div>
+        <div class="col">
+            <img src="/images/foodBag.webp" alt="Weekly Delivery" class="circle-img">
+            <h3>We deliver weekly — for free.</h3>
+            <p>Your ingredients are packaged in our temperature-conditioned boxes, so food stays fresh — even when you aren't at home.</p>
+        </div>
+        <div class="col">
+            <img src="/images/filoFood.jpg" alt="Incredible Meals" class="circle-img">
+            <h3>You eat incredible meals every day.</h3>
+            <p>Our recipes are created to cater to all cooking levels and styles. From a quick lunch to a delicious family dinner.</p>
+        </div>
+    </div>
+</section>
+
+<section class="featured-meals container-fluid px-md-5 py-5 bg-light">
+    <h2 class="text-center mb-4">Featured Meal Kits</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% meals.forEach(meal => { %>
+            <div class="col">
+                <%- include('../partials/mealkit', { meal: meal }) %>
+            </div>
+        <% }); %>
+    </div>
+</section>

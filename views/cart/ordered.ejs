@@ -1,0 +1,26 @@
+<main class="container d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 50vh;">
+    <div class="px-3">
+        <h1 class="display-4 fw-bold mb-3 text-success">
+            <i class="bi bi-check-circle-fill"></i> 
+            <%= typeof title !== 'undefined' ? title : "Salamat! Order Confirmed" %>
+        </h1>
+        
+        <p class="lead mb-4">
+            <%= typeof message !== 'undefined' ? message : "Your delicious Filipino meal kits are being prepared and will be at your door soon!" %>
+        </p>
+
+        <div class="card bg-light border-0 p-4 mb-4 shadow-sm" style="max-width: 500px;">
+            <p class="mb-0">
+                A confirmation receipt has been sent to your email. 
+                <br>
+                <strong>Keep cooking and stay hungry!</strong>
+            </p>
+        </div>
+
+        <p class="lead">
+            <a href="/mealkits" class="btn btn-primary btn-lg fw-bold px-5">
+                Continue to Meal Kits
+            </a>
+        </p>
+    </div>
+</main>

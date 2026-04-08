@@ -1,0 +1,30 @@
+<main class="container py-5 flex-grow-1 d-flex align-items-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+            <div class="form-card mx-auto">
+                <h2>Sign Up</h2>
+                <p class="subtitle">Create your account by entering your email address and choosing a password</p>
+                
+                <form action="/sign-up" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="firstName" placeholder="First Name">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email Address">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit w-100">Sign up today</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

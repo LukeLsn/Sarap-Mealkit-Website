@@ -1,0 +1,43 @@
+<main class="container py-5 flex-grow-1 d-flex align-items-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+            <div class="form-card mx-auto">
+                <h2>Sign Up</h2>
+                <p class="subtitle">Create your account by entering your email address and choosing a password</p>
+                
+                <form action="/sign-up" method="POST" enctype="multipart/form-data">
+                    <!-- use multipart form data when dealing with images maybe in the nnext assignment? -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="firstName" placeholder="First Name" id="firstName" value="<%= values ? values.firstName : '' %>">
+                        <% if (errors && errors.firstName) { %>
+                        <p class="error-msg" style="color: red;"><%= errors.firstName %></p>
+                        <% } %>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" id="lastName" value="<%= values ? values.lastName : '' %>">
+                        <% if (errors && errors.lastName) { %>
+                        <p class="error-msg" style="color: red";><%= errors.lastName %></p>
+                        <% } %>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="email" placeholder="Email Address" id="email" value="<%= values ? values.email : '' %>">
+                        <% if (errors && errors.email) { %>
+                        <p class="error-msg" style="color: red;"><%= errors.email %></p>
+                        <% } %>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Password" id="password">
+                        <% if (errors && errors.password) { %>
+                        <p class="error-msg" style="color: red;"><%= errors.password %></p>
+                        <% } %>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit w-100">Sign up today</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

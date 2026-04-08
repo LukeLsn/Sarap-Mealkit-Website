@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #f1eaaa;">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/" ><img src="/images/logo.png" alt="Logo" width="150" height="50"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-lg-3 gap-1">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mealkits">On the Menu</a></li>
+
+        <% if(typeof user==="undefined"){%>
+        <li class="nav-item"><a class="btn btn-outline-dark fw-bold px-4 rounded-3" href="/sign-up">Sign Up</a></li>
+        <li class="nav-item"><a class="btn btn-warning fw-bold px-4 rounded-3" href="/log-in">Log In</a></li>
+        <% }else{ %>
+        <li class="nav-item"><p class="nav-link">Hi, <%= user.firstName.split(' ')[0] %>!</p></li>
+
+          <% if (role === "clerk") { %>
+            <li class="nav-item">
+              <a class="btn btn-outline-dark fw-bold px-4 rounded-3" href="/mealkits/list">Manage Kits</a>
+            </li>
+          <% } else if (role === "customer") { %>
+            <li class="nav-item">
+              <a class="btn btn-outline-dark fw-bold px-4 rounded-3" href="/cart">🛒 Cart</a>
+            </li>
+          <% } %>
+
+        <li class="nav-item"><a class="btn btn-warning fw-bold px-4 rounded-3" href="/log-out">Log Out</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
