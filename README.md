@@ -17,4 +17,6 @@ In assignment 2, you will publish to GitHub, provide the link below:
 GitHub Repo   : https://github.com/lotramos_seneca/web322-2261-prj-lotramos
 
 In assignment 3, you will publish to Vercel, provide the link below:
-Vercel Domain : https://<app_name>.vercel.app/
+Vercel Domain : https://web322-assignment3-six.vercel.app/
+
+Do note that vercel does not support file uploads , so while the data clerk will still be able to add mealkits, uploading mealkit image won't be supported for the live version of this assignment. Uploading of the image is fully functional for the local copy of the assignment for testing. Thank You!
