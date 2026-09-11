@@ -69,9 +69,9 @@ To populate your database with initial meal kit data, start the application and 
 ```Bash
 # Optional setup command if defined in package.json
 npm run seed
+```
 5. Launch the Server
-Bash
-# Start in production mode
+```Bash
 npm start
 ```
 
