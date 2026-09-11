@@ -83,3 +83,6 @@ Shopping Cart System: Add, remove, and update kit quantities dynamically (cartCo
 User Authentication: Sign up, log in, and manage session states (userModel.js).
 
 Data Ingestion: Automated data loading helper (loadDataController.js) to seed sample meals into storage.
+
+
+> **Note:** Because this project utilizes a MongoDB Atlas free-tier cluster, the database may automatically pause after periods of inactivity. If the live website is not functioning or loading data, please contact the author to wake up the database cluster.
