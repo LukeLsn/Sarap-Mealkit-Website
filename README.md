@@ -67,10 +67,6 @@ DATABASE_URI=your_database_connection_string
 4. Seed / Load Initial Data
 To populate your database with initial meal kit data, start the application, login as an admin (contact author for admin credentials) then add desired meal kits
 
-```Bash
-# Optional setup command if defined in package.json
-npm run seed
-```
 5. Launch the Server
 ```Bash
 npm start
